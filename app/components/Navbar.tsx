@@ -8,7 +8,7 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="sticky top-0 z-50 p-3 border-b bg-white shadow-sm">
+        <nav className="sticky top-0 z-50 p-3 border-b border-b-white bg-[#060219] shadow-sm">
             <div className=" mx-auto flex justify-between ">
                 <div className="flex items-center space-x-3">
                     <Link href="/" className="flex items-center space-x-3">
@@ -21,7 +21,7 @@ const Navbar = () => {
                                 priority
                             />
                         </div>
-                        <h1 className="font-bold text-2xl text-gray-800">{navContents.title}</h1>
+                        <h1 className="font-bold text-2xl text-gray-300">{navContents.title}</h1>
                     </Link>
                 </div>
                 
@@ -30,19 +30,19 @@ const Navbar = () => {
                      <div className="hidden md:flex space-x-6">
                         <Link 
                             href="/dashboard" 
-                            className="text-gray-600 hover:text-blue-600 transition-colors"
+                            className="text-gray-300 hover:text-blue-600 transition-colors"
                         >
                             Dashboard
                         </Link>
                         <Link 
                             href="/updates" 
-                            className="text-gray-600 hover:text-blue-600 transition-colors"
+                            className="text-gray-300 hover:text-blue-600 transition-colors"
                         >
                             Updates
                         </Link>
                         <Link 
                             href="/arreas" 
-                            className="text-gray-600 hover:text-blue-600 transition-colors"
+                            className="text-gray-300 hover:text-blue-600 transition-colors"
                         >
                             Arreas
                         </Link>
