@@ -1,10 +1,10 @@
-// app/components/landing/AvailableRooms.tsx
-'use client';
+'use client' //Client component
 
 import { useState } from 'react';
 import { Check, Wifi, Car, Droplets, MapPin, Bed, Bath, Maximize } from 'lucide-react';
 import Link from 'next/link';
 import { Room, availableRooms } from '@/app/lib/data';
+import Button from './Button';
 
 const RoomCard = ({ room }: { room: Room }) => {
   const getFeatureIcon = (feature: string) => {
@@ -15,12 +15,12 @@ const RoomCard = ({ room }: { room: Room }) => {
   };
 
   return (
-    <div className="group bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-2xl overflow-hidden hover:border-blue-500 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10">
+    <div className="group bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-2xl overflow-hidden hover:border-black transition-all duration-300 hover:shadow-xl hover:shadow-black/10">
       {/* Room Header */}
       <div className="p-6 border-b border-gray-700">
         <div className="flex justify-between items-start mb-4">
           <div>
-            <span className="inline-flex items-center gap-2 bg-blue-900/50 text-blue-300 text-sm font-medium px-3 py-1 rounded-full">
+            <span className="inline-flex items-center gap-2 bg-green-900/50 text-green-300 text-sm font-medium px-3 py-1 rounded-full">
               <Check className="w-3 h-3" />
               Available
             </span>
@@ -28,7 +28,7 @@ const RoomCard = ({ room }: { room: Room }) => {
             <p className="text-gray-400">{room.title}</p>
           </div>
           <div className="text-right">
-            <div className="text-3xl font-bold text-white">${room.price}</div>
+            <div className="text-3xl font-bold text-white">sh {room.price}</div>
             <div className="text-gray-400 text-sm">per month</div>
           </div>
         </div>
@@ -38,10 +38,6 @@ const RoomCard = ({ room }: { room: Room }) => {
       {/* Room Details */}
       <div className="p-6">
         <div className="flex items-center gap-6 mb-6">
-          <div className="flex items-center gap-2">
-            <Maximize className="w-5 h-5 text-blue-400" />
-            <span className="text-gray-300">{room.size}</span>
-          </div>
           <div className="flex items-center gap-2">
             <Bed className="w-5 h-5 text-blue-400" />
             <span className="text-gray-300">Studio</span>
@@ -73,14 +69,14 @@ const RoomCard = ({ room }: { room: Room }) => {
           href={`/apply?room=${room.id}`}
           className="block w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-3 px-4 rounded-lg text-center transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25"
         >
-          Book This Room
+          Book 
         </Link>
       </div>
     </div>
   );
 };
 
-const AvailableRooms = () => {
+const AvailableRooms = ({ variant = 'home'} : {variant?: 'home' | 'bookings'}) => {
   const [showOnlyAvailable, setShowOnlyAvailable] = useState(true);
   
   const filteredRooms = showOnlyAvailable 
@@ -138,18 +134,20 @@ const AvailableRooms = () => {
         </div>
 
         {/* CTA */}
-        <div className="text-center">
-          <Link 
-            href="/apply"
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-4 px-12 rounded-xl text-lg transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/25"
+        {variant === 'home' ? (
+           <Button />
+        ) : (
+          <div className="text-center">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-4 px-12 rounded-xl text-lg transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/25"
           >
-            Apply for Any Room
-            <span className="text-xl">→</span>
+            Back to Home
+            <span className="text-xl">←</span>
           </Link>
-          <p className="text-gray-500 mt-4">
-            All applications are processed within 24-48 hours
-          </p>
         </div>
+        )}
+         
       </div>
     </section>
   );

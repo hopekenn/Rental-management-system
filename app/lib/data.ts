@@ -5,7 +5,6 @@ export interface Room {
   title: string;
   description: string;
   price: number;
-  size: string;
   features: string[];
   status: 'vacant' | 'occupied';
 }
@@ -13,42 +12,38 @@ export interface Room {
 export const availableRooms: Room[] = [
   {
     id: 1,
-    roomNumber: '101',
+    roomNumber: '21',
     title: 'Premium Studio',
     description: 'Modern studio with smart home features, perfect for professionals. Recently renovated with high-end finishes.',
-    price: 1200,
-    size: '450 sq ft',
-    features: ['WiFi Included', 'Private Bath', 'Parking Spot', 'AC', 'Smart Lock'],
+    price: 5500,
+     features: ['WiFi Included', 'Private Bath', 'Parking Spot', 'AC', 'Smart Lock'],
     status: 'vacant'
   },
   {
     id: 2,
-    roomNumber: '205',
+    roomNumber: '65',
     title: 'Deluxe 1-Bedroom',
     description: 'Spacious one-bedroom with separate living area, kitchenette, and balcony with city views.',
-    price: 1800,
-    size: '750 sq ft',
+    price: 5500,
     features: ['WiFi Included', 'Private Bath', '2 Parking Spots', 'Balcony', 'In-unit Laundry'],
     status: 'vacant'
   },
   {
     id: 3,
-    roomNumber: '312',
+    roomNumber: '45',
     title: 'Executive 2-Bedroom',
     description: 'Luxury two-bedroom apartment with panoramic views, premium appliances, and walk-in closets.',
-    price: 2500,
-    size: '1100 sq ft',
-    features: ['WiFi Included', '2 Bathrooms', 'Covered Parking', 'AC', 'Gym Access', 'Pool'],
+    price: 5500,
+     features: ['WiFi Included', '2 Bathrooms', 'Covered Parking', 'AC', 'Gym Access', 'Pool'],
     status: 'vacant'
   },
   {
     id: 4,
-    roomNumber: '408',
+    roomNumber: '65',
     title: 'Economy Studio',
     description: 'Budget-friendly studio with all essential amenities, perfect for students.',
-    price: 850,
-    size: '350 sq ft',
-    features: ['WiFi Included', 'Shared Bath', 'Basic Utilities', 'Study Desk'],
+    price: 5500,
+     features: ['WiFi Included', 'Shared Bath', 'Basic Utilities', 'Study Desk'],
     status: 'occupied'
   },
 ];
