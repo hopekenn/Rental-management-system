@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Check, Wifi, Car, Droplets, MapPin, Bed, Bath, Maximize } from 'lucide-react';
 import Link from 'next/link';
 import { Room, availableRooms } from '@/app/lib/data';
+import Button from './Button';
 
 const RoomCard = ({ room }: { room: Room }) => {
   const getFeatureIcon = (feature: string) => {
@@ -68,14 +69,14 @@ const RoomCard = ({ room }: { room: Room }) => {
           href={`/apply?room=${room.id}`}
           className="block w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-3 px-4 rounded-lg text-center transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25"
         >
-          Book This Room
+          Book 
         </Link>
       </div>
     </div>
   );
 };
 
-const AvailableRooms = () => {
+const AvailableRooms = ({ variant = 'home'} : {variant?: 'home' | 'bookings'}) => {
   const [showOnlyAvailable, setShowOnlyAvailable] = useState(true);
   
   const filteredRooms = showOnlyAvailable 
@@ -133,18 +134,20 @@ const AvailableRooms = () => {
         </div>
 
         {/* CTA */}
-        <div className="text-center">
-          <Link 
-            href="/apply"
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-4 px-12 rounded-xl text-lg transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/25"
+        {variant === 'home' ? (
+           <Button />
+        ) : (
+          <div className="text-center">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-4 px-12 rounded-xl text-lg transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/25"
           >
-            Apply for Any Room
-            <span className="text-xl">→</span>
+            Back to Home
+            <span className="text-xl">←</span>
           </Link>
-          <p className="text-gray-500 mt-4">
-            All applications are processed within 24-48 hours
-          </p>
         </div>
+        )}
+         
       </div>
     </section>
   );
