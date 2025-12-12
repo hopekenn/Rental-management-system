@@ -59,7 +59,7 @@ const TestimonialsSection = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="text-white">What Our </span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+            <span className="text-transparent bg-clip-text bg-blue-700">
               Tenants Say
             </span>
           </h2>
