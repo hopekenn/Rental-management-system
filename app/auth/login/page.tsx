@@ -10,11 +10,7 @@ const LoginPage = () => {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [loginType, setLoginType] = useState<'tenant' | 'admin'>('tenant');
-  const [formData, setFormData] = useState({
-    roomNumber: '',
-    password: '',
-    rememberMe: false,
-  });
+  const [formData, setFormData] = useState({ roomNumber: '', password: '', rememberMe: false, });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -23,17 +19,30 @@ const LoginPage = () => {
     setLoading(true);
     setError('');
 
-    // Simulate API call
-    setTimeout(() => {
-      // Mock validation
-      if (formData.roomNumber && formData.password) {
-        // Successful login
-        router.push('/dashboard');
+    if(loginType === 'admin') {
+      const adminID = "Admin123"
+      const adminPassword = "Admin123"
+
+      if(formData.roomNumber === adminID && formData.password === adminPassword) {
+        router.push('/admin/admin-dashboard');
       } else {
-        setError('Please fill in all required fields');
+        setError("We didn't found any admin with those credentials");
+        setLoading(false)
       }
-      setLoading(false);
-    }, 1000);
+    }
+
+    if(loginType === 'tenant') {
+      const tenantID = "Tenant123"
+      const tenantPassword = "Tenant123"
+
+      if(formData.roomNumber === tenantID && formData.password === tenantPassword) {
+        router.push('/tenant/tenant-dashboard');
+      } else {
+        setError('Invalid credentials');
+        setLoading(false)
+      }
+    }
+
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
