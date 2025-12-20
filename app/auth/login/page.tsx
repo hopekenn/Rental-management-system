@@ -70,7 +70,7 @@ const LoginPage = () => {
 
   return (
     <>
-    <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+    <Navbar  />
     <div className="min-h-screen bg-[#060219]">
       <div className="container mx-auto px-4 py-12">
          <div className="mb-8">
