@@ -1,11 +1,11 @@
 'use client';
-
-import { useEffect, useState } from 'react';
+import {useAuth} from '@/app/context/AuthContext';
+import { useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
 const Navbar = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { isLoggedIn, setIsLoggedIn } = useAuth();
 
   useEffect(() => {
     const token = localStorage.getItem('token');
