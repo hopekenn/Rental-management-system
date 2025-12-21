@@ -1,25 +1,40 @@
 // app/context/AuthContext.tsx
 'use client';
-import { createContext, useContext, useState, ReactNode } from 'react';
+
+import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
+
+type Role = 'tenant' | 'admin' | null;
 
 type AuthContextType = {
   isLoggedIn: boolean;
-  setIsLoggedIn: (value: boolean) => void;
+  userRole: Role;
+  setAuth: (value: { isLoggedIn: boolean; role: Role }) => void;
 };
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  // Initialize from localStorage directly
-  const [isLoggedIn, setIsLoggedIn] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return !!localStorage.getItem('token');
-    }
-    return false;
-  });
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userRole, setUserRole] = useState<Role>(null);
+
+  // Sync once from localStorage on mount
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const token = localStorage.getItem('token');
+    const role = localStorage.getItem('userRole') as Role;
+
+    setIsLoggedIn(!!token);
+    setUserRole(role ?? null);
+  }, []);
+
+  const setAuth = ({ isLoggedIn, role }: { isLoggedIn: boolean; role: Role }) => {
+    setIsLoggedIn(isLoggedIn);
+    setUserRole(role);
+  };
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
+    <AuthContext.Provider value={{ isLoggedIn, userRole, setAuth }}>
       {children}
     </AuthContext.Provider>
   );
