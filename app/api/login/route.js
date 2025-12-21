@@ -1,29 +1,57 @@
-// app/lib/mongoose.js
-import mongoose from 'mongoose';
+// app/api/login/route.ts or route.js
+import { NextRequest, NextResponse } from 'next/server';
+import { connectDB } from '@/app/lib/mongoose';
+import User from '@/app/models/User';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 
-const MONGO_URL = process.env.MONGO_URL;
+const JWT_SECRET = process.env.JWT_SECRET || 'supersecret';
 
-if (!MONGO_URL) {
-  throw new Error('MONGO_URL is not defined');
-}
+export async function POST(req) {
+  try {
+    await connectDB();
 
-let cached = global.mongoose || { conn: null, promise: null };
+    const { identifier, password, role } = await req.json();
 
-if (!global.mongoose) {
-  global.mongoose = cached;
-}
+    if (!identifier || !password || !role) {
+      return NextResponse.json(
+        { error: 'Missing credentials' },
+        { status: 400 },
+      );
+    }
 
-export async function connectDB() {
-  if (cached.conn) {
-    return cached.conn;
+    const user =
+      role === 'tenant'
+        ? await User.findOne({ roomNumber: identifier, role: 'tenant' })
+        : await User.findOne({ adminId: identifier, role: 'admin' });
+
+    if (!user) {
+      return NextResponse.json(
+        { error: 'Invalid credentials' },
+        { status: 401 },
+      );
+    }
+
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return NextResponse.json(
+        { error: 'Invalid credentials' },
+        { status: 401 },
+      );
+    }
+
+    const token = jwt.sign(
+      { id: user._id, role: user.role },
+      JWT_SECRET,
+      { expiresIn: '7d' },
+    );
+
+    return NextResponse.json({ token, role: user.role });
+  } catch (err) {
+    console.error('LOGIN ERROR:', err);
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 },
+    );
   }
-
-  if (!cached.promise) {
-    cached.promise = mongoose.connect(MONGO_URL, {
-      bufferCommands: false,
-    });
-  }
-
-  cached.conn = await cached.promise;
-  return cached.conn;
 }
