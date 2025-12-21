@@ -56,9 +56,11 @@ const LoginPage = () => {
       // Save token only on client side
       if (mounted && typeof window !== 'undefined') {
         localStorage.setItem('token', data.token);
-        localStorage.setItem('userRole', data.user.role);
-        localStorage.setItem('userId', data.user.id);
+        localStorage.setItem('userRole', data.role);
+        
       }
+
+      console.log("role", data.role);
 
       // Redirect based on role
       if (loginType === 'admin') {
