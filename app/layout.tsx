@@ -6,6 +6,8 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
+const maintenanceMode = true
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -26,6 +28,18 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  if (maintenanceMode) {
+    return (
+      <html lang="en">
+        <body className={`${geistSans.variable} ${geistMono.variable}`}>
+          <div className="flex items-center justify-center ">
+            <p className="  font-bold">Server suspended by the owner</p>
+          </div>
+        </body>
+      </html>
+    );
+  }
+
   return (
      <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
