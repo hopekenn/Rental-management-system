@@ -3,8 +3,10 @@
 import { useAuth } from '@/app/context/AuthContext';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 const Navbar = () => {
+  const router = useRouter();
   const { isLoggedIn, userRole, setAuth } = useAuth();
 
   const navContents = {
@@ -16,6 +18,7 @@ const Navbar = () => {
     if (typeof window !== 'undefined') {
       localStorage.removeItem('token');
       localStorage.removeItem('userRole');
+      router.push('/auth/login');
     }
     setAuth({ isLoggedIn: false, role: null });
   };
