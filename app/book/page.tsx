@@ -2,12 +2,11 @@
 'use client';
 
 import { useState } from 'react';
-import { useSearchParams, useRouter } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
 export default function SimpleBookPage() {
   const searchParams = useSearchParams();
-  const router = useRouter();
   const roomId = searchParams.get('room');
   
   const [formData, setFormData] = useState({
@@ -71,8 +70,8 @@ export default function SimpleBookPage() {
           </h2>
           
           <p className="text-gray-300 mb-6">
-            We've received your booking request for Room {roomId || 'the selected room'}. 
-            We'll contact you within 24-48 hours.
+            We have received your booking request for Room {roomId || 'the selected room'}. 
+            We will contact you within 24-48 hours.
           </p>
           
           <Link 
@@ -190,7 +189,7 @@ export default function SimpleBookPage() {
               </button>
 
               <p className="text-gray-400 text-xs text-center">
-                We'll contact you to schedule a viewing.
+                We will contact you to schedule a viewing.
               </p>
             </form>
           </div>
