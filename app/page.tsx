@@ -9,7 +9,7 @@ export default function HomePage() {
 
   return (
 
-    <main className="min-h-screen bg-[#060219]">
+    <main className="min-h-screen bg-gray-800">
       <HeroSection />
       <AvailableRooms />
       <FeaturesSection />

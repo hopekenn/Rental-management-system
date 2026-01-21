@@ -5,6 +5,4 @@ const MenuPaths = [
   { href: "/tenant/settings", label: "Settings" },
 ];
 
- 
-
 export default MenuPaths

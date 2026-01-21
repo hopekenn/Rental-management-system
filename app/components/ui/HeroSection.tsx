@@ -5,8 +5,7 @@ const HeroSection = () => {
   return (
     <div className="relative min-h-[90vh] flex items-center  overflow-hidden">
        <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-black/50"></div>
-      </div>
+       </div>
 
       <div className="container mx-auto px-4 relative z-9">
         <div className="max-w-6xl mx-auto">
@@ -59,7 +58,7 @@ const HeroSection = () => {
               </div>
             </div>
 
-             <div className="bg-black/50 backdrop-blur-lg border border-white/10 rounded-2xl p-8">
+             <div className="bg-gray-900 backdrop-blur-lg border border-white/10 rounded-2xl p-8">
               <div className="text-center mb-8">
                 <div className="w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Home className="w-10 h-10 text-white" />
@@ -72,8 +71,8 @@ const HeroSection = () => {
                 {[
                   { label: 'Total Rooms', value: '116', color: 'text-blue-400' },
                   { label: 'Currently Vacant', value: '12', color: 'text-green-400' },
-                  { label: 'Avg. Rent per month', value: 'ksh 5500', color: 'text-purple-400' },
-                  { label: 'New Applications', value: '8', color: 'text-yellow-400' },
+                  { label: 'Avg. Rent per month', value: 'ksh 5500', color: 'text-blue-400' },
+                  { label: 'New Applications', value: '8', color: 'text-blue-400' },
                 ].map((stat, index) => (
                   <div key={index} className="flex justify-between items-center pb-4 border-b border-white/10">
                     <span className="text-gray-400">{stat.label}</span>

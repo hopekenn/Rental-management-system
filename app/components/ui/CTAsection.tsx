@@ -3,10 +3,10 @@ import Link from 'next/link';
 
 const CTASection = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-[#060219] via-blue-950/30 to-[black]">
+    <section className="py-20">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="bg-gradient-to-br from-[black] to-[black] border border-gray-700 rounded-3xl p-12 text-center">
+          <div className="bg-gray-900 border border-gray-700 rounded-3xl p-12 text-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               <span className="text-white">Ready to Find Your</span>
               <span className="block text-transparent bg-clip-text bg-blue-700">
@@ -40,7 +40,7 @@ const CTASection = () => {
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-[black] to-[black] border border-blue-700/30 rounded-2xl p-8">
+              <div className="border border-blue-700/30 rounded-2xl p-8">
                 <h4 className="text-xl font-bold text-white mb-6">Get In Touch</h4>
                 <div className="space-y-6">
                   <div className="flex items-center gap-4">
