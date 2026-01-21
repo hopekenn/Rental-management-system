@@ -35,7 +35,7 @@ export async function POST(req: NextRequest) {
     );
   }
 }
-
+ 
 export async function GET() {
   try {
     await connectDB();

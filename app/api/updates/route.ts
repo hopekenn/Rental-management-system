@@ -29,3 +29,17 @@ export async function POST(req: NextRequest) {
         );
     }
 }
+
+export async function GET() {
+    try{
+        await connectDB()
+        const announcememnts = await Update.find().sort({createdAt: -1})
+        return NextResponse.json(announcememnts)
+    } catch(error){
+        console.error("Error fetching updates:", error)
+        return NextResponse.json(
+            {error: "internal server Error"},
+            {status: 500}
+        )    
+    }
+}
