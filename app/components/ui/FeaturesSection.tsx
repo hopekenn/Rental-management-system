@@ -13,7 +13,7 @@ const iconMap: Record<string, React.ReactNode> = {
 
 const FeaturesSection = () => {
   return (
-    <section className="py-20 bg-gradient-to-b from-[#060219] to-gray-900">
+    <section className="py-20  ">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -56,7 +56,7 @@ const FeaturesSection = () => {
           ))}
         </div>
 
-         <div className="mt-20 bg-gradient-to-r from-[#07072e] to-[black] border border-blue-700/30 rounded-2xl p-8">
+         <div className="mt-20 bg-gradient-to-r from-gray-800/20 to-gray-900 border border-gray-700/30 rounded-2xl p-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="text-4xl font-bold text-white mb-2">98%</div>

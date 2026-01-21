@@ -24,7 +24,7 @@ const RoomCard = ({ room }: { room: Room }) => {
   };
  
   return (
-    <div className="group bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-2xl overflow-hidden hover:border-black transition-all duration-300 hover:shadow-xl hover:shadow-black/10">
+    <div className="bg-gray-900 border border-gray-700 rounded-2xl overflow-hidden hover:border-black transition-all duration-300 hover:shadow-xl hover:shadow-black/10">
        <div className="p-6 border-b border-gray-700">
         <div className="flex justify-between items-start mb-4">
           <div>
@@ -116,7 +116,7 @@ useEffect(() => {
     : rooms;
 
   return (
-    <section id="rooms" className="py-20 bg-[#060219]">
+    <section id="rooms" className="py-20  ">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
