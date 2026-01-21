@@ -9,7 +9,7 @@ export interface Room {
 }
 
 export interface Update {
-  id: string,
+  _id: string ,
   update: string,
   description: string,
   createdAt: string,
