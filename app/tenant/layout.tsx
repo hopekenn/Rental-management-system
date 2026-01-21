@@ -18,16 +18,14 @@ export default function TenantLayout({
    
   return (
     <div className="flex min-h-screen bg-[#060219] text-white">
-      {/* Mobile Menu Button */}
-      <button
+       <button
         onClick={() => setSidebarOpen(!sidebarOpen)}
         className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-black text-white rounded-lg"
       >
         {sidebarOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
       </button>
 
-      {/* Sidebar Overlay for Mobile */}
-      {sidebarOpen && (
+       {sidebarOpen && (
         <div
           className="lg:hidden fixed inset-0 bg-black/50 z-40"
           onClick={() => setSidebarOpen(false)}
@@ -44,13 +42,11 @@ export default function TenantLayout({
   `}
       >
         <div className="flex flex-col h-full p-4">
-          {/* Logo */}
-          <div className="mb-4 p-3">
+           <div className="mb-4 p-3">
             <h1 className="font-bold text-2xl mb-1">Tenant Portal</h1>
           </div>
 
-          {/* Menu */}
-          <div className="flex-1">
+           <div className="flex-1">
             <h3 className="font-semibold text-blue-700 mb-3 p-3">MENU</h3>
             <nav className="space-y-1">
               {MenuPaths.map((item) => {
@@ -98,7 +94,7 @@ export default function TenantLayout({
  
 
               {/* Notifications */}
-              <Link href="/tenant/messages" title="Messages" className="cursor-pointer p-2 hover:bg-gray-800 rounded transition-colors">
+              <Link href="/tenant/updates" title="updates" className="cursor-pointer p-2 hover:bg-gray-800 rounded transition-colors">
                 <Bell className="w-5 h-5 text-gray-400" />
               </Link>
             </div>

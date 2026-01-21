@@ -1,5 +1,5 @@
 export interface Room {
-  id: number;
+  _id: number;
   roomNumber: string;
   title: string;
   description: string;
@@ -7,3 +7,11 @@ export interface Room {
   features: string[];
   status: 'vacant' | 'occupied';
 }
+
+export interface Update {
+  id: string,
+  update: string,
+  description: string,
+  createdAt: string,
+}
+    
