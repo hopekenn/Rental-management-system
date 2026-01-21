@@ -71,16 +71,16 @@ export default function TenantDashboard() {
                       (today.getMonth() - moveIn.getMonth());
 
   return (
-    <div className="min-h-screen bg-[#060219] text-white">
+    <div className="bg-[#060219] text-white">
     
 
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4">
         {/* Main Info Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           {/* Tenant Info Card */}
           <div className="bg-gray-900/50 border border-gray-700 rounded-xl p-6">
             <div className="flex items-center gap-4 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center">
+              <div className="w-12 h-12 bg-green-600  rounded-full flex items-center justify-center">
                 <span className="text-white font-bold text-lg">{tenant.name.charAt(0)}</span>
               </div>
               <div>
@@ -122,36 +122,12 @@ export default function TenantDashboard() {
             </div>
 
             <div className="space-y-4">
-              <div className={`flex items-center gap-3 p-4 rounded-lg ${
-                tenant.rentStatus === 'paid' 
-                  ? 'bg-green-900/30 border border-green-700/30'
-                  : tenant.rentStatus === 'overdue'
-                  ? 'bg-red-900/30 border border-red-700/30'
-                  : 'bg-yellow-900/30 border border-yellow-700/30'
-              }`}>
-                {tenant.rentStatus === 'paid' ? (
-                  <CheckCircle className="w-5 h-5 text-green-400" />
-                ) : tenant.rentStatus === 'overdue' ? (
-                  <Clock className="w-5 h-5 text-red-400" />
-                ) : (
-                  <Clock className="w-5 h-5 text-yellow-400" />
-                )}
-                <div>
-                  <p className="font-medium capitalize">{tenant.rentStatus}</p>
-                  <p className="text-sm text-gray-400">
-                    {tenant.rentStatus === 'paid' 
-                      ? 'All payments are up to date'
-                      : tenant.rentStatus === 'overdue'
-                      ? 'Payment is overdue'
-                      : 'Payment pending'
-                    }
-                  </p>
-                </div>
+              <div className={`flex items-center gap-3 p-4 rounded-lg bg-green-600`}>
+                <span>
+                  Your rent is Due
+                </span>
               </div>
-
-  
-
-              {/* CTA - Rent Tracking */}
+ 
               <Link 
                 href="/tenant/payments"
                 className="block w-full py-3 px-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-medium rounded-lg text-center transition-all duration-300"
@@ -167,7 +143,7 @@ export default function TenantDashboard() {
           <h2 className="text-xl font-bold mb-4">Quick Actions</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <Link 
-              href="/dashboard/rent"
+              href="/tenant/payments"
               className="bg-gray-900/50 border border-gray-700 hover:border-blue-500 rounded-xl p-4 text-center transition-colors"
             >
               <DollarSign className="w-6 h-6 text-blue-400 mx-auto mb-2" />
@@ -175,7 +151,7 @@ export default function TenantDashboard() {
             </Link>
             
             <Link 
-              href="/dashboard/maintenance"
+              href="/tenant/discussions"
               className="bg-gray-900/50 border border-gray-700 hover:border-green-500 rounded-xl p-4 text-center transition-colors"
             >
               <Home className="w-6 h-6 text-green-400 mx-auto mb-2" />
@@ -183,7 +159,7 @@ export default function TenantDashboard() {
             </Link>
             
             <Link 
-              href="/dashboard/messages"
+              href="/tenant/messages"
               className="bg-gray-900/50 border border-gray-700 hover:border-purple-500 rounded-xl p-4 text-center transition-colors"
             >
               <MessageSquare className="w-6 h-6 text-purple-400 mx-auto mb-2" />
@@ -191,7 +167,7 @@ export default function TenantDashboard() {
             </Link>
             
             <Link 
-              href="/dashboard/updates"
+              href="/tenant/updates"
               className="bg-gray-900/50 border border-gray-700 hover:border-yellow-500 rounded-xl p-4 text-center transition-colors"
             >
               <Bell className="w-6 h-6 text-yellow-400 mx-auto mb-2" />
