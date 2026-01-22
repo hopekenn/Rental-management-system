@@ -1,3 +1,4 @@
+// app/api/login/route.js
 import { NextResponse } from 'next/server';
 import { connectDB } from '@/app/lib/mongoose';
 import User from '@/app/models/User';
@@ -10,7 +11,7 @@ export async function POST(req) {
   try {
     await connectDB();
     const body = await req.json();
-    
+   
     const { identifier, password, role } = body;
     console.log('🔍 LOGIN:', { identifier, role, passwordLength: password?.length });
 

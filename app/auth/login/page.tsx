@@ -44,11 +44,16 @@ const LoginPage = () => {
 
       console.log('Sending login request:', { ...payload, password: '***' }); // Debug log
 
-      const res = await fetch('/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
+// MUST BE:
+const res = await fetch('/api/login', {  // ✅ CORRECT
+  method: 'POST',
+  body: JSON.stringify({
+    identifier: formData.roomNumber.trim(),
+    password: formData.password.trim(),
+    role: loginType  // 'tenant'
+  })
+});
+
 
       const contentType = res.headers.get('content-type');
       if (!contentType || !contentType.includes('application/json')) {
