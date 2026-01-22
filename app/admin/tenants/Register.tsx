@@ -42,7 +42,7 @@ const RegisterTenantForm = ({ onClose, onSubmit }: RegisterTenantFormProps) => {
       await navigator.clipboard.writeText(formData.password);
       setCopyPassword(true);
       setTimeout(() => setCopyPassword(false), 3000);
-    } catch (err: any) {
+    } catch (err) {
       console.log("failed to copy");
     }
   };
@@ -113,10 +113,10 @@ const RegisterTenantForm = ({ onClose, onSubmit }: RegisterTenantFormProps) => {
       });
 
       onClose();
-    } catch (error: any) {
+    } catch (error) {
       console.error("TENANT CREATE ERROR:", error);
       setErrors({
-        general: error.response?.data?.error || error.message || "Failed to create tenant",
+        general: "Failed to create tenant"
       });
     } finally {
       setLoading(false);
