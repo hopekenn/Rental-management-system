@@ -104,14 +104,11 @@ export async function POST(req: NextRequest) {
       userId: authUser._id 
     }, { status: 201 });
 
-  } catch (error: any) {
+  } catch (error) {
     console.error('💥 TENANT CREATE CRASHED!');
-    console.error('💥 ERROR MESSAGE:', error.message);
-    console.error('💥 ERROR TYPE:', error.name);
-    console.error('💥 FULL ERROR:', error);
     
     return NextResponse.json({ 
-      error: error.message || 'Failed to create tenant' 
+      error: 'Failed to create tenant' 
     }, { status: 500 });
   }
 }
