@@ -1,45 +1,42 @@
 // app/dashboard/settings/page.tsx
 'use client';
 import swal from 'sweetalert2';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { 
-  ArrowLeft,
-  User,
-  Bell,
-  Shield,
-  Eye,
-  EyeOff,
-  Mail,
-  Smartphone,
-  Home,
-  Lock,
- 
-  Save,
- 
-  LogOut,
-  AlertTriangle,
-  RefreshCw
-} from 'lucide-react';
+import { ArrowLeft, User, Bell, Shield, Eye, EyeOff, Mail, Smartphone, Home, Lock, Save, LogOut, AlertTriangle, RefreshCw } from 'lucide-react';
+import { useTenant } from '@/app/hooks/useTenant';
 
 export default function TenantSettings() {
   const [activeTab, setActiveTab] = useState('profile');
   const [saving, setSaving] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
   const [showCurrentPassword, setShowCurrentPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const {tenant, loading} = useTenant();
 
   // Profile Settings
   const [profile, setProfile] = useState({
-    name: 'Sarah Johnson',
-    email: 'sarah@email.com',
-    phone: '+254 712 345 678',
-    roomNumber: '101',
+    name: '',
+    email: '',
+    phone: '',
+    roomNumber: '',
     emergencyContact: '+254 723 456 789',
     emergencyName: 'Michael Johnson',
   });
+
+  useEffect(() => {
+    if(tenant && !loading){
+      setProfile({
+        name: tenant.name || "",
+        email: tenant.email || "",
+        phone: tenant.phone || "",
+        roomNumber: tenant.roomNumber || "",
+        emergencyContact: "+254 723 456 789",
+        emergencyName: "Michael Johnson",
+      })
+    }
+  }, [tenant, loading])
 
   // Notification Settings
   const [notifications, setNotifications] = useState({
@@ -210,7 +207,7 @@ export default function TenantSettings() {
                             <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-500" />
                             <input
                               type="text"
-                              value={profile.name}
+                              value={loading ? "Loading" : profile?.name}
                               onChange={(e) => handleChangeProfile('name', e.target.value)}
                               className="w-full pl-10 pr-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-blue-500"
                             />
@@ -317,8 +314,7 @@ export default function TenantSettings() {
                 </div>
               )}
 
-              {/* Privacy Settings */}
-              {activeTab === 'privacy' && (
+               {activeTab === 'privacy' && (
                 <div className="space-y-6">
                   <div className="bg-gray-900/50 border border-gray-700 rounded-xl p-6">
                     <h2 className="text-xl font-bold mb-6 flex items-center gap-3">
