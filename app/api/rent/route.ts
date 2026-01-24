@@ -1,19 +1,32 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { connectDB } from '@/app/lib/mongoose';
 import Tenant from '@/app/models/real-tenant';
-import RentPayment from '@/app/models/RentPayment'; // You'll need this model
+import RentPayment from '@/app/models/RentPayment'; 
+
+ 
+type RentPayment = {
+  _id: string;
+  tenantId: string;
+  tenantName: string;
+  roomNumber: string;
+  amount: number;
+  dueDate: string;
+  paidDate: string | null;
+  status: 'paid' | 'pending' | 'overdue';
+  paymentMethod: string;
+  lateFee: number;
+};
 
 export async function GET(req: NextRequest) {
   try {
     await connectDB();
 
-    // Get all tenants and their payment status
+   
     const tenants = await Tenant.find({}).select('name roomNumber rentAmount moveInDate').lean();
     
-    // Mock payment data (replace with real RentPayment model)
-    const payments = tenants.map(tenant => {
+     const payments = tenants.map(tenant => {
       const dueDate = new Date();
-      dueDate.setMonth(dueDate.getMonth() + 1); // Next month
+      dueDate.setMonth(dueDate.getMonth() + 1);  
       
       const daysLate = Math.floor(Math.random() * 10);
       const isOverdue = daysLate > 0;
