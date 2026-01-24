@@ -77,7 +77,7 @@ export default function TenantLayout({ children }: { children: React.ReactNode }
     );
   })}
 </nav>
-
+  
             </nav>
           </div>
         </div>

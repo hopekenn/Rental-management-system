@@ -68,11 +68,14 @@ export default function AdminRoomsPage() {
 
   return (
     <div className="min-h-screen bg-[#060219] text-white p-8">
-      <h1 className="text-3xl font-bold mb-6">Manage Rooms</h1>
+      <h1 className="text-3xl font-bold mb-2">Manage Rooms</h1>
+      <span className='mb-4'>
+        is there a vacant room? Advertise it here
+      </span>
 
       <form
         onSubmit={handleSubmit}
-        className="max-w-lg space-y-4 bg-gray-900 p-6 rounded-xl border border-gray-700"
+        className="max-w-lg space-y-4 bg-gray-900 p-6 rounded-xl mt-6 border border-gray-700"
       >
         <input
           name="roomNumber"
