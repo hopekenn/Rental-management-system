@@ -1,4 +1,4 @@
-import { ArrowRight, CheckCircle, Home, Shield } from 'lucide-react';
+import { ArrowRight, CheckCircle, Home } from 'lucide-react';
 import Link from 'next/link';
 
 const HeroSection = () => {
@@ -12,8 +12,7 @@ const HeroSection = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
              <div>
               <div className="inline-flex items-center gap-2 bg-black/50 backdrop-blur-sm border border-blue-700/30 rounded-full px-4 py-2 mb-6">
-                <Shield className="w-4 h-4 text-blue-300" />
-                <span className="text-sm text-blue-200">Secure Digital Platform</span>
+                 <span className="text-sm text-blue-200">Secure Digital Platform</span>
               </div>
               
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
@@ -43,7 +42,7 @@ const HeroSection = () => {
                <div className="flex flex-col sm:flex-row gap-4">
                 <a 
                   href="#rooms"
-                  className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25"
+                  className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300  "
                 >
                   View Available Rooms
                   <ArrowRight className="w-5 h-5" />
@@ -70,9 +69,9 @@ const HeroSection = () => {
               <div className="space-y-6">
                 {[
                   { label: 'Total Rooms', value: '116', color: 'text-blue-400' },
-                  { label: 'Currently Vacant', value: '12', color: 'text-green-400' },
+                  { label: 'Currently Vacant', value: '2', color: 'text-green-400' },
                   { label: 'Avg. Rent per month', value: 'ksh 5500', color: 'text-blue-400' },
-                  { label: 'New Applications', value: '8', color: 'text-blue-400' },
+                  { label: 'New Applications', value: '0', color: 'text-blue-400' },
                 ].map((stat, index) => (
                   <div key={index} className="flex justify-between items-center pb-4 border-b border-white/10">
                     <span className="text-gray-400">{stat.label}</span>

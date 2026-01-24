@@ -53,8 +53,8 @@ const CTASection = () => {
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-purple-600/20 border border-purple-500/30 rounded-full flex items-center justify-center">
-                      <Calendar className="w-6 h-6 text-purple-400" />
+                    <div className="w-12 h-12 bg-blue-600/20 border border-purple-500/30 rounded-full flex items-center justify-center">
+                      <Calendar className="w-6 h-6 text-blue-400" />
                     </div>
                     <div>
                       <div className="text-gray-400 text-sm">Business Hours</div>
@@ -68,7 +68,7 @@ const CTASection = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
                 href="/bookings"
-                className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-4 px-10 rounded-xl text-lg transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/25"
+                className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-4 px-10 rounded-xl text-lg transition-all duration-300  "
               >
                  View Rooms
                 <ArrowRight className="w-5 h-5" />
