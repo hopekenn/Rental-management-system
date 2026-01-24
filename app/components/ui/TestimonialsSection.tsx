@@ -1,7 +1,7 @@
  'use client';
 
 import { useState } from 'react';
-import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import { testimonials } from '@/app/lib/data';
 
 const TestimonialCard = ({ 
@@ -17,14 +17,7 @@ const TestimonialCard = ({
 }) => {
   return (
     <div className="  border border-gray-700 rounded-2xl p-8">
-      <div className="flex items-center gap-2 mb-4">
-        {[...Array(5)].map((_, i) => (
-          <Star 
-            key={i} 
-            className={`w-5 h-5 ${i < rating ? 'text-yellow-400 fill-yellow-400' : 'text-gray-600'}`} 
-          />
-        ))}
-      </div>
+    
       
       <Quote className="w-8 h-8 text-blue-400 mb-6" />
       <p className="text-gray-300 text-lg italic mb-8 leading-relaxed">{content}</p>
