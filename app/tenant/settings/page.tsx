@@ -388,7 +388,7 @@ export default function TenantSettings() {
                   {sendRequest && (
                     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4">
                     <div className='bg-gray-800 h-fit flex flex-col p-3 rounded'>
-                      <p className='mb-4 flex text-center justify-center'>Password reset Request send to admin. You'll be notified <br />once the process is completed. 
+                      <p className='mb-4 flex text-center justify-center'>Password reset Request send to admin. You will be notified <br />once the process is completed. 
                         In the meantime, <br />use Your previous password
                       </p>
                       <button 
