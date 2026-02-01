@@ -22,26 +22,18 @@ const FeaturesSection = () => {
           {features.map((feature, index) => (
             <div 
               key={index}
-              className="group bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700 rounded-2xl p-8 hover:border-blue-500   hover:shadow-xl"
+              className="group bg-gray-900/50 border border-gray-700 rounded-2xl p-8 hover:border-blue-500   hover:shadow-xl"
             >
         
               
               <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
               <p className="text-gray-400 leading-relaxed">{feature.description}</p>
-              
-              <div className="mt-6 pt-6 border-t border-gray-700">
-                <div className="flex items-center text-sm text-blue-400">
-                  <span className="inline-flex items-center gap-2">
-                    <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
-                    Integrated with platform
-                  </span>
-                </div>
-              </div>
+             
             </div>
           ))}
         </div>
 
-         <div className="mt-20 bg-gradient-to-r from-gray-800/20 to-gray-900 border border-gray-700/30 rounded-2xl p-8">
+         <div className="mt-20 bg-gray-900 border border-gray-700/30 rounded-2xl p-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="text-4xl font-bold text-white mb-2">98%</div>
